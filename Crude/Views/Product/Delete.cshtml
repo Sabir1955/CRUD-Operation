@@ -1,0 +1,26 @@
+﻿@model CRUDE.Models.Product
+
+@{
+    ViewData["Title"] = "Delete product";
+}
+
+<h2>Delete product?</h2>
+
+<p>Are you sure you want to delete <strong>@Model.Name</strong>? This can't be undone.</p>
+
+<dl class="row">
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.Description</dd>
+
+    <dt class="col-sm-2">Price</dt>
+    <dd class="col-sm-10">@Model.Price.ToString("C")</dd>
+
+    <dt class="col-sm-2">Color</dt>
+    <dd class="col-sm-10">@Model.Color</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
